@@ -12,6 +12,7 @@ public:
     vector<Operacja> operacje;
 
     Zadanie(int, vector<Operacja>);
+    int sumOperacji() const;
 };
 
 

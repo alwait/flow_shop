@@ -9,3 +9,11 @@ Zadanie::Zadanie(int Nr, vector<Operacja> Operacje) {
     operacje=Operacje;
 }
 
+int Zadanie::sumOperacji()const {
+    int sum=0;
+    for(Operacja op: this->operacje){
+        sum+=op.pj;
+    }
+    return sum;
+}
+

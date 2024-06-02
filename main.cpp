@@ -4,7 +4,7 @@
 
 int main() {
     //Flowshop tasma = Flowshop(true);
-    Flowshop tasma = Flowshop(7,2,1,6,2);
+    Flowshop tasma = Flowshop(7,2,1,20,2);
     cout << tasma.toString() << endl;
 
     Rozwiazanie rozwiazaniePZ = tasma.przegladZupelny();

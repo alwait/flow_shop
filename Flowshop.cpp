@@ -98,15 +98,20 @@ Rozwiazanie Flowshop::przegladZupelny() {
 }
 
 Rozwiazanie Flowshop::NEH() {
-    vector<Zadanie> zadaniaLocal;
-    vector<int> kolejnosc, kolejnoscOpt;
+    vector<Zadanie> zadaniaLocal = zadania;
+    vector<int> kolejnosc, kolejnoscOpt, kolejnoscInit;
+    ranges::sort(zadaniaLocal, [](const Zadanie &a, const Zadanie &b)
+    {
+        return a.sumOperacji() <= b.sumOperacji();
+    });
+    for(int i=0; i< zadaniaLocal.size(); ++i) kolejnoscInit.push_back(zadaniaLocal[i].nr);
     int zadanie = 1, index = 0, cmax = INT_MAX, cmaxTemp;
     for (int j = 0; j < zadania.size(); j++) {
-        zadanie=j+1;
+        zadanie=j;
         index = 0;
         cmax = INT_MAX;
-        for (int i = 0; i < zadanie; ++i) {
-            kolejnosc.insert(kolejnosc.begin() + index, zadanie);
+        for (int i = 0; i <= zadanie; ++i) {
+            kolejnosc.insert(kolejnosc.begin() + index, kolejnoscInit[zadanie]);
             zadaniaLocal = przyporzadkujNumery(zadania, kolejnosc);
             cmaxTemp = Rozwiazanie(Flowshop(zadaniaLocal)).cmax;
             if (cmaxTemp < cmax) {
