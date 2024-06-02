@@ -13,6 +13,7 @@ public:
 
     Flowshop(vector<Zadanie>);
     Flowshop(bool);
+    Flowshop(string);
     Flowshop(int, int, int, int, int);
     vector<Zadanie> przyporzadkujNumery(vector<Zadanie>,vector<int>);
     Rozwiazanie przegladZupelny();
